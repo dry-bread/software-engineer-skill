@@ -1,95 +1,98 @@
 # Run Guide
 
-Instructions for running, testing, and debugging this project.
+How to run, test, and debug this project.
 
 ---
 
-## 🔄 Self-Improvement Guide
+## 1. Running the Project
 
-**When to update this file:**
-- Load this file at Stage 5 (Run & Test)
-- When setup fails or requires manual intervention
-- When user repeatedly provides run instructions
+#
 
-**Signals that trigger updates:**
+## When Run Guide is Empty
 
-1. **File is empty or incomplete**
-   - Read project README for run instructions
-   - Check package.json scripts, Makefile, docker-compose.yml
-   - Ask user: "Run guide is incomplete. Should I initialize it based on [what I found]? Or do you have docs I should reference?"
+**If sections above are empty or incomplete:**
 
-2. **User repeatedly provides same run instructions**
-   - Track if user says same thing multiple times
-   - Distinguish code issues (ignore) from process gaps (important)
-   - Ask user: "[Specific instruction] was needed but not in run-guide. Should I add it?"
-
-3. **Runtime errors due to missing setup**
-   - Note errors caused by missing env vars, dependencies, or setup steps
-   - Ask user: "Error '[X]' suggests missing [Y]. Should I add this to troubleshooting?"
-
-4. **Success pattern not documented**
-   - If run succeeds but steps weren't fully documented
-   - Capture the successful workflow
-
-**Update proposal format:**
 ```
-**Run Guide Improvement**
+WORKFLOW:
+1. Check for project documentation
+   a. Read README.md or README.rst
+   b. Look for CONTRIBUTING.md, docs/ folder
+   c. Check package.json "scripts", Makefile, docker-compose.yml
+   
+2. If documentation found:
+   → Extract run instructions
+   → Organize into sections above (Prerequisites, Setup, Running, etc.)
+   → Ask user: "Found run instructions in [source]. Should I populate run-guide with:
+      - Prerequisites: [list]
+      - Setup: [steps]
+      - Run command: [command]
+      ?"
 
-Gap identified: [What caused friction]
-User action required: [What user had to provide/fix]
+3. If no documentation found:
+   a. Analyze project structure to infer:
+      - Language/framework (package.json → Node.js, requirements.txt → Python, etc.)
+      - Likely commands (npm start, python main.py, mvn run, etc.)
+   
+   b. Ask user:
+      "No run documentation found. Based on project structure:
+      - Detected: [language/framework]
+      - Typical commands: [inferred commands]
+      
+      Do you have run documentation? Or should I try these commands?"
 
-Proposed update to run-guide.md:
-- Section: [Prerequisites/Setup/Running/Troubleshooting]
-- Addition: [Specific content to add]
-
-This is a process gap, not a code issue. Should I document it?
+4. After first successful run:
+   → Document all steps that were actually needed
+   → Populate relevant sections above
+   → Create troubleshooting entries for any issues encountered
 ```
 
-**Distinguish process vs. code issues:**
-- ✅ **Process gap** (document it):
-  - Missing environment variable in .env example
-  - Undocumented prerequisite software
-  - Missing database migration step
-  - Unclear run command
-- ❌ **Code issue** (fix the code, don't document as process):
-  - Logic bug causing runtime error
-  - Incorrect API endpoint
-  - Missing error handling
-
-**Key principle:** If the solution is to change code, it's a code issue. If the solution is for the developer to do something (install, configure, run a command), it's a process gap that belongs here.
-
 ---
 
-## How to Use This File
+##  During Code Execution
 
-**This file is initially empty.** It learns from your project setup:
+**While running code, monitor for process gaps:**
 
-1. **First run attempt** - Discovers how to run the project
-2. **Captures setup** - Documents prerequisites and environment
-3. **Tracks gaps** - When you provide missing setup steps, proposes documenting them
+```
+WORKFLOW:
+1. Execute run command from Step 4
 
-**Content will include:**
-- Prerequisites (languages, tools, services)
-- Initial setup steps
-- Environment configuration
-- How to run (dev, test, build, deploy)
-- Debugging techniques
-- Troubleshooting common issues
+2. If error occurs, classify:
+   
+   ✅ PROCESS GAP (document in run-guide):
+   - "Module not found" → Missing dependency installation step
+   - "Port already in use" → Add to troubleshooting
+   - "Environment variable X not set" → Add to Step 3
+   - "Database connection failed" → Missing setup step
+   - "Permission denied" → Missing prerequisite or setup
+   
+   ❌ CODE ISSUE (fix code, don't document as process):
+   - "Null pointer exception" → Code bug
+   - "Invalid API response" → Code logic error
+   - "Validation failed" → Code implementation issue
+   - "Type error" → Code syntax/type problem
 
----
+3. If user provides missing instruction:
+   
+   Track repetition:
+   - First time: Note it
+   - Second time: Process gap detected
+   - Ask user: "You've provided '[instruction]' twice. This seems like a setup step 
+     missing from run-guide. Should I add it to [Section]?"
 
-## Content Sections (Populated During Use)
+4. After successful run:
+   
+   Verify documentation:
+   - Did documented steps match actual needs?
+   - Were any steps missing?
+   - Were any steps unclear?
+   - Did troubleshooting section help?
+   
+   If gaps found:
+   → Propose update with specific improvements
 
-**The skill will add these sections as needed:**
-
-- **Prerequisites** - Required software and versions
-- **Initial Setup** - First-time installation steps
-- **Environment Variables** - Required configuration
-- **Running the Application** - Dev/test/prod commands
-- **Testing** - How to run tests
-- **Debugging** - Common debugging approaches
-- **Troubleshooting** - Known issues and solutions
-
----
-
-**Note:** This is a living document. It evolves through actual run attempts and captures real setup requirements.
+5. Update sections above:
+   - Add missing prerequisites
+   - Clarify unclear steps
+   - Add new troubleshooting entries
+   - Document environment variables
+```

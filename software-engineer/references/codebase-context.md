@@ -12,8 +12,8 @@ Project-specific context: business domain, architecture, and feature documentati
 
 | Feature Area | Key Features | Documentation Path |
 |--------------|--------------|-------------------|
-| **Authentication** | Login, Registration, OAuth | [features/authentication/](features/authentication/) |
-| **User Management** | Profiles, Permissions, Settings | [features/user-management/](features/user-management/) |
+| |  | |
+| | |  |
 
 *Note: This list will grow as more features are documented.*
 
@@ -28,7 +28,6 @@ Project-specific context: business domain, architecture, and feature documentati
    - If no → Proceed to Step 3
 
 2. **Load and read feature documentation**
-   - Example: User asks about "login" → Load `features/authentication/login.md`
    - Get business requirements, user flows, technical details
 
 3. **After reading feature docs, verify against code:**
@@ -78,83 +77,4 @@ WORKFLOW:
    - Add to this file's feature table (Step 1)
 ```
 
----
 
-### Step 4: Load Project Overview (When Needed)
-
-**This file can also contain:**
-- **Project Overview** - Purpose, tech stack, key features
-- **Repository Structure** - Directory organization
-- **Architecture Patterns** - Design patterns used
-- **Data Models** - Key entities and relationships
-- **Common Scenarios** - Typical development patterns
-
-**These sections are populated as you work on the project.**
-
----
-
-## When to Use This File
-
-Load during:
-- **Stage 1 (Understand Requirements)** - Get business context
-- **Stage 2 (Analyze Code)** - Understand feature architecture
-- When user mentions specific features or business logic
-- When investigating unfamiliar parts of codebase
-
----
-
-## Feature Documentation Organization
-
-```
-references/features/
-├── authentication/
-│   ├── login.md
-│   ├── registration.md
-│   └── password-reset.md
-├── user-management/
-│   ├── profile.md
-│   ├── permissions.md
-│   └── settings.md
-├── [domain-area]/
-│   └── [feature].md
-└── README.md  # Feature index with all features
-```
-
----
-
-## 🔄 Self-Improvement Workflow
-
-**When to update this file:**
-- When loaded during Stage 1 or Stage 2
-- When feature documentation is missing or outdated
-- When user mentions features not in the feature table
-
-**Update triggers:**
-
-1. **Feature table is empty or incomplete**
-   - After analyzing code and finding undocumented features
-   - After creating new feature documentation
-   - Add entry to Step 1 feature table
-
-2. **Feature documentation contradicts code**
-   - Discovered during Step 2 verification workflow
-   - Update feature doc, not this file (this file only indexes features)
-
-3. **Project overview sections needed**
-   - If file lacks tech stack, architecture info
-   - Read README, package.json, analyze structure
-   - Propose adding sections to Step 4
-
-**Update proposal format:**
-```
-**Codebase Context Update**
-
-Action: [Add feature to table / Add project overview section]
-Found: [What was discovered in code]
-
-Proposed update:
-- Add to feature table: [Feature name, domain, file path]
-- OR Add section: [Project Overview / Architecture / Data Models]
-
-Should I proceed?
-```

@@ -1,58 +1,18 @@
 # Retrospective Guide
 
-After completing each task, conduct a brief retrospective to improve:
-
-1. **Work quality** - How well was the task completed?
-2. **Skill effectiveness** - Did the skill's documentation help or hinder?
+Conduct retrospectives after completing tasks to improve work quality and skill effectiveness.
 
 ---
 
-## 🔄 Self-Improvement Guide
+## Workflow: Conducting Retrospectives
 
-**When to update this file:**
-- When conducting retrospectives after tasks
-- When user feedback suggests retrospective process improvements
-- When repeated patterns indicate missing analysis frameworks
+### When to Conduct
 
-**Signals that trigger updates:**
-
-1. **Retrospective feels incomplete**
-   - User says "we should also check [X]"
-   - Important aspects not covered by current framework
-   - Propose adding new analysis section
-
-2. **Skill documentation analysis reveals gaps**
-   - If multiple retrospectives find same skill files unhelpful
-   - Specific reference files repeatedly need updates
-   - Learning opportunities not captured
-
-3. **User repeatedly asks for same retrospective info**
-   - Missing standardized questions
-   - Propose adding to framework
-
-**Update proposal format:**
-```
-**Retrospective Guide Improvement**
-
-Observed pattern: [What's missing or ineffective]
-Occurred in: [Tasks where this was noticed]
-
-Proposed update to retrospective-guide.md:
-- [Section to add/modify]
-- [New analysis framework or questions]
-
-Should I add this to the retrospective framework?
-```
-
----
-
-## When to Conduct Retrospectives
-
-**After every task completion:**
-- Quick 2-minute review
+**Quick retrospective (2 minutes):**
+- After every task completion
 - Focus on key learnings
 
-**Full retrospective triggers:**
+**Full retrospective:**
 - Complex multi-file changes
 - When things went wrong
 - When user explicitly requests
@@ -60,44 +20,68 @@ Should I add this to the retrospective framework?
 
 ---
 
-## Retrospective Framework
+### Step 1: Interaction Retrospective
 
-### 1. Interaction Retrospective
+**Analyze the conversation efficiency:**
 
-**Analyze the conversation:**
+```
+Questions to ask:
+- Was the requirement clear from the start?
+- How many clarification rounds were needed?
+- Were the right files/tools accessed?
+- Could we have reached the solution faster?
 
-- **Clarity:** Was the requirement clear from the start?
-- **Questions:** How many clarification rounds needed?
-- **Tool Usage:** Were the right files/tools accessed?
-- **Efficiency:** Could we have reached the solution faster?
-
-**Learning:**
+Learning:
 - What questions should have been asked earlier?
-- What assumptions were made?
+- What assumptions were made that caused delays?
+```
+
+**Output format:**
+```markdown
+**Interaction Analysis:**
+- Clarity: [Clear / Required X clarifications]
+- Efficiency: [Could improve by: ...]
+- Key learning: [...]
+```
 
 ---
 
-### 2. Code Change Retrospective
+### Step 2: Code Change Retrospective
 
-**Analyze the implementation:**
+**Analyze the implementation quality:**
 
-- **Solution Quality:** Is this the best approach?
-- **Code Coverage:** Did we modify all necessary files?
-- **Edge Cases:** What scenarios might break this?
-- **Testing:** What testing gaps remain?
-
-**Learning:**
-- What patterns emerged?
-- What could be improved?
+```
+Questions to ask:
+- Is this the best approach?
+- Did we modify all necessary files?
+- What edge cases might break this?
+- What testing gaps remain?
 - What technical debt was created?
 
+Learning:
+- What patterns emerged from this codebase?
+- What could be improved in the solution?
+- What should be refactored later?
+```
+
+**Output format:**
+```markdown
+**Code Quality Analysis:**
+- Solution approach: [Description]
+- Completeness: [All files modified / Missing: ...]
+- Technical debt: [None / List items]
+- Patterns learned: [...]
+```
+
 ---
 
-### 3. Skill Documentation Retrospective
+### Step 3: Skill Documentation Retrospective
 
-**Analyze skill effectiveness:**
+**Analyze whether skill's reference files helped or hindered:**
 
-**Documentation Accuracy:**
+#### 3.1 Check Each Reference File
+
+**For each reference file that was loaded:**
 
 | Reference File | Accurate? | Helpful? | Needs Update? | Notes |
 |----------------|-----------|----------|---------------|-------|
@@ -107,103 +91,66 @@ Should I add this to the retrospective framework?
 | git-workflow.md | Yes/No/Empty | Yes/No/NA | Yes/No | [What's wrong] |
 | features/[X].md | Yes/No/Empty | Yes/No/NA | Yes/No | [What's wrong] |
 
-**Workflow Friction Analysis:**
+#### 3.2 Stage-by-Stage Friction Analysis
 
-- **Stage 1 (Understand):** Did codebase-context help? What was missing?
-- **Stage 2 (Analyze):** Were feature docs sufficient? What gaps?
-- **Stage 4 (Modify):** Did coding-standards guide properly?
-- **Stage 5 (Test):** Did run-guide have the commands needed?
-- **Stage 6 (Submit):** Did git-workflow match actual process?
+**Check each workflow stage:**
 
-**Repeated Patterns:**
+```
+Stage 1 (Understand Requirements):
+- Was codebase-context.md loaded?
+- Did it have the business context needed?
+- What information was missing?
+- Did feature documentation exist and help?
 
-- **This task:** What information was searched for?
-- **Previous tasks:** Have we searched for this before?
-- **Pattern detected:** If yes, should we document it?
+Stage 2 (Analyze Code):
+- Were feature docs accurate?
+- Did they match actual code?
+- What gaps were discovered?
 
-**Learning Opportunities:**
+Stage 4 (Modify Code):
+- Was coding-standards.md loaded?
+- Did it reflect actual code patterns?
+- What undocumented standards were found?
 
-- **New pattern discovered:** [Description]
-- **Should document in:** [Which file]
-- **Would save time on:** [Future scenarios]
+Stage 5 (Run & Test):
+- Was run-guide.md loaded?
+- Did it have the commands needed?
+- What missing steps were encountered?
 
-**Improvement Report Template:**
-
-```markdown
-## Skill Documentation Issues Found
-
-### High Priority (Caused significant friction)
-1. **[File]:** [What's wrong] → [Proposed fix]
-2. **[File]:** [What's wrong] → [Proposed fix]
-
-### Medium Priority (Minor delays)
-1. **[File]:** [What's wrong] → [Proposed fix]
-
-### Learning Captured
-- **Pattern:** [What we learned]
-- **Document in:** [Which file]
-- **Benefit:** [Why this helps future tasks]
-
-### Batch Update Recommendation
-Observations: [Summary of issues across 3-5 tasks]
-
-**Proposed batch updates:**
-- Update [file-1]: [Changes]
-- Update [file-2]: [Changes]
-- Add [new-file]: [Purpose]
-
-Shall I proceed with these updates?
+Stage 6 (Submit):
+- Was git-workflow.md loaded?
+- Did it match repository conventions?
+- What conflicts between docs and practice?
 ```
 
-**Quick Post-Task Checklist:**
-- [ ] Did skill docs help or hinder?
-- [ ] Any information gaps encountered?
-- [ ] New patterns worth documenting?
-- [ ] Conflicts between docs and reality?
+#### 3.3 Detect Repeated Patterns
 
-**When to propose skill updates:**
-- Immediately if critical gap (blocks work)
-- After 3-5 tasks for minor improvements (batch updates)
-- When user explicitly mentions documentation issues
+**Check for information searched multiple times:**
 
----
+```
+Questions:
+- What information did I search for in this task?
+- Have I searched for similar information before?
+- Is there a pattern worth documenting?
 
-## Retrospective Output Format
-
-**Quick Retrospective (2 min):**
-
-```markdown
-## Task Retrospective
-
-**What went well:**
-- [Point 1]
-- [Point 2]
-
-**What could improve:**
-- [Point 1]
-- [Point 2]
-
-**Action items:**
-- [ ] [Action 1]
-- [ ] [Action 2]
+Examples:
+- Searched for authentication logic 3 times → Document in features/
+- Had to figure out run commands again → Update run-guide.md
+- User corrected branch naming twice → Update git-workflow.md
 ```
 
-**Full Retrospective:**
+#### 3.4 Identify Learning Opportunities
 
-Include all three sections above (Interaction + Code + Skill Documentation)
+**Capture new patterns discovered:**
 
----
+```
+For each new pattern:
+- What pattern did I learn about this codebase?
+- Where should it be documented?
+- How would it help future tasks?
 
-## How to Use This Guide
-
-1. **After task completion:** Run quick retrospective
-2. **Identify issues:** Note what went wrong
-3. **Check skill docs:** Were they helpful or misleading?
-4. **Propose updates:** If docs need improvement
-5. **Track patterns:** Multiple similar issues → batch update
-
-**The skill learns faster when:**
-- Retrospectives are honest
-- Patterns are identified
-- Documentation is kept accurate
-- Learning is captured for future tasks
+Template:
+Pattern: [Description of what was learned]
+Document in: [Which reference file]
+Benefit: [How this speeds up future work]
+```

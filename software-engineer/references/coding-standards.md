@@ -1,94 +1,130 @@
 # Coding Standards
 
-Project-specific coding conventions, style guidelines, and best practices.
+Project-specific coding conventions and style guidelines.
 
 ---
 
-## 🔄 Self-Improvement Guide
+## Workflow: Following Coding Standards
 
-**When to update this file:**
-- Always load this file before Stage 4 (Modify Code)
-- While analyzing code to modify, observe actual patterns used
-- When contradictions found between this doc and actual code
+### Current Coding Standards
 
-**Signals that trigger updates:**
+**Naming Conventions:**
 
-1. **File is empty or has TODO markers**
-   - Analyze existing code in files being modified
-   - Document observed patterns (naming, formatting, packages)
-   - Propose filling in sections with actual patterns
+*This section will be populated after analyzing project code.*
+
+**Code Formatting:**
+
+*This section will be populated after analyzing project code.*
+
+**Import Organization:**
+
+*This section will be populated after analyzing project code.*
+
+**Comment Styles:**
+
+*This section will be populated after analyzing project code.*
+
+**File Structure:**
+
+*This section will be populated after analyzing project code.*
+
+**Preferred Packages:**
+
+*This section will be populated after analyzing project code.*
+
+**Error Handling:**
+
+*This section will be populated after analyzing project code.*
+
+**Testing Conventions:**
+
+*This section will be populated after analyzing project code.*
+
+---
+
+## Workflow: When Coding Standards are Empty
+
+**If sections above are empty:**
+
+```
+WORKFLOW:
+1. Before modifying code, analyze existing code files
    
-2. **Documented standard contradicts actual code**
-   - While modifying code, note what's actually used vs. documented
-   - Ask user: "Code uses [pattern X] but coding-standards says [pattern Y]. Should I update to reflect actual practice?"
+   a. Read files you're about to modify
+   b. Read similar files in the same module
+   c. Observe patterns:
+      - Naming: camelCase? snake_case? PascalCase?
+      - Indentation: 2 spaces? 4 spaces? Tabs?
+      - Imports: How are they organized? Any consistent order?
+      - Comments: Inline? Block? Docstrings? JSDoc?
+      - File structure: Imports → Constants → Functions → Exports?
+      - Error handling: try/catch? if/else? Custom errors?
+      - Testing: Co-located tests? Separate test folder?
 
-3. **Preferred package not documented**
-   - Observe consistently imported packages
-   - Ask user: "I notice [package] is used throughout for [purpose]. Should I add it to preferred packages?"
+2. Document observed patterns
+   
+   Propose to user:
+   "No coding standards documented yet. Based on analyzing [files]:
+   
+   Observed patterns:
+   - Naming: Variables use [pattern], Functions use [pattern]
+   - Formatting: [X] spaces indentation, [Y] line length
+   - Imports: [Organization pattern]
+   - Comments: [Style observed]
+   - Packages: Consistently using [package] for [purpose]
+   
+   Should I populate coding-standards.md with these patterns?"
 
-4. **New pattern observed**
-   - Find repeated code structures not documented
-   - Ask user: "Should I document [pattern] as the standard approach for [purpose]?"
-
-**Update proposal format:**
+3. After first code modification:
+   
+   - Document all patterns followed
+   - Populate relevant sections above
+   - Create initial coding standards baseline
 ```
-**Coding Standards Improvement**
 
-Current state: [What's documented or missing]
-Observed pattern: [What code actually does]
+---
 
-Proposed update to coding-standards.md:
-- Section: [Which section to update]
-- Change: [Specific addition/modification]
-- Example: [Code example showing the pattern]
+## Workflow: During Code Modification
 
-Should I update the standards?
+**While modifying code, maintain consistency:**
+
 ```
+WORKFLOW:
+1. Load current coding standards (sections above)
 
-**What to observe while modifying code:**
-- Naming conventions (camelCase, snake_case, PascalCase)
-- Indentation and spacing
-- Import/require organization
-- Comment styles (inline, block, docstrings)
-- File structure and organization
-- Error handling patterns
-- Testing approaches
-- Preferred packages for common tasks
+2. Follow documented patterns
+   - Use documented naming conventions
+   - Match documented formatting
+   - Organize imports as documented
+   - Follow documented file structure
 
----
+3. Observe existing code being modified
+   
+   Check consistency:
+   a. Does existing code follow documented standards?
+   b. If YES → Follow the same patterns
+   c. If NO → Detected inconsistency
+   
+   When inconsistency found:
+   - OPTION A: Code is correct, docs are wrong
+     → Ask: "Code uses [X] but docs say [Y]. Should I update docs?"
+   
+   - OPTION B: Code is outdated, docs are correct
+     → Follow docs, refactor code to match standards
 
-## How to Use This File
+4. Discover new patterns not documented
+   
+   If you notice:
+   - Consistently used package not in "Preferred Packages"
+   - Repeated code structure not documented
+   - Common error handling pattern not captured
+   
+   → Ask: "Found [pattern] used throughout. Should I add to standards?"
 
-**This file is initially empty.** It learns project standards from your code:
-
-1. **First edit** - Analyzes existing code patterns
-2. **Proposes standards** - Based on what code actually does
-3. **Tracks consistency** - Detects when code deviates from documented standards
-
-**Content will include:**
-- Naming conventions (variables, functions, classes, files)
-- Code formatting (indentation, line length, spacing)
-- Import organization
-- Comment styles
-- File structure patterns
-- Preferred packages and libraries
-- Code organization principles
-- Testing conventions
-
----
-
-## Content Sections (Populated During Use)
-
-**The skill will add these sections as needed:**
-
-- **Language-Specific Conventions** - Style rules for each language
-- **Naming Patterns** - Variable/function/class naming
-- **File Organization** - How to structure files
-- **Imports & Dependencies** - Preferred packages
-- **Comments & Documentation** - When and how to comment
-- **Error Handling** - How to handle errors
-- **Testing Conventions** - Test file patterns
-
----
-
-**Note:** This is a living document. It evolves as the skill learns your project's actual patterns through code observation.
+5. Write new code following standards
+   
+   - Apply documented naming conventions
+   - Match documented formatting
+   - Use documented patterns
+   - Follow documented structure
+```
