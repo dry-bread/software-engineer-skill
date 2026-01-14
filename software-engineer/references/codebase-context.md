@@ -1,8 +1,18 @@
 # Codebase Context
+This document provides an overview of the project's business domains, architecture, and feature documentation index.
 
-Project-specific context: business domain, architecture, and feature documentation index.
+**Purpose:**
+- Provide a high-level summary of business logic and design
+- Document key functional areas and considerations
+- Index detailed feature documentation (features/)
+- Does not include specific coding standards and technical details (refer to coding-standards.md)
 
----
+
+## Background
+
+### Project Overview
+
+**Trident Data Engineering and Data Science Extension** is the codebase for Microsoft Fabric's data engineering and data science capabilities. This monorepo contains the web-based extensions that power notebook experiences, Spark job management, language services, and data visualization features in the Fabric platform.
 
 ## Workflow: Understanding Project Context
 
@@ -37,9 +47,7 @@ Project-specific context: business domain, architecture, and feature documentati
    b. Read actual implementation
    c. Compare documentation vs. reality
    d. If mismatch found:
-      → Ask user: "Feature doc says [X] but code does [Y]. Should I update the docs?"
-   e. If code has new logic not documented:
-      → Ask user: "Found [new behavior] in code. Should I add this to feature doc?"
+      → update the docs align to actual code logic
    ```
 
 ---
@@ -51,30 +59,15 @@ Project-specific context: business domain, architecture, and feature documentati
 ```
 WORKFLOW:
 1. Search codebase for feature-related files
-   - Use semantic search with feature name
-   - Look for controllers, services, components, etc.
-
 2. Read and analyze the code
    - Identify entry points (API endpoints, UI components)
    - Trace business logic flow
    - Note dependencies and data models
 
 3. Draft feature documentation
-   - Use features/TEMPLATE.md as structure
-   - Document: Overview, Business Requirements, User Flows, 
+   - add a new file under ./features
+   - Document: Overview, Business Requirements, User Flows,
      Technical Implementation, API Endpoints, Edge Cases
-
-4. Propose to user:
-   "Feature [X] isn't documented yet. Based on code analysis:
-   - Found in: [file paths]
-   - Purpose: [what it does]
-   - Key logic: [main flows]
-   
-   Should I create features/[domain]/[feature-name].md with this info?"
-
-5. If user approves:
-   - Create feature documentation file
-   - Add to this file's feature table (Step 1)
 ```
 
 

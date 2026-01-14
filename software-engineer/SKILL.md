@@ -1,6 +1,6 @@
 ---
 name: software-engineer
-description: Standardized software engineering workflow for code modification, debugging, testing, and submission within a codebase. Use when asked to add features, fix bugs, investigate issues, refactor code, or complete any code-related engineering task. Triggers include requests to modify code, run projects, debug errors, locate problems, understand business logic, submit PRs, or review code changes.
+description: Standardized software engineering workflow for understanding, modifying, debugging, testing, and submitting code within a codebase. Use when asked to read or explore a repository, understand code structure or business logic, add features, fix bugs, investigate issues, refactor code, or complete any code-related engineering task. Triggers include requests to read or understand code, locate relevant files, modify code, run projects, debug errors, identify root causes, submit PRs, or review code changes.
 ---
 
 # Software Engineer
@@ -15,6 +15,7 @@ Follow this 6-stage process for all code engineering tasks:
 
 **Actions:**
 1. Parse user request to identify the task type:
+   - Understanding
    - Feature addition
    - Bug fix
    - Investigation/debugging
@@ -23,14 +24,10 @@ Follow this 6-stage process for all code engineering tasks:
 2. Clarify ambiguous requirements with targeted questions
 3. Load [references/codebase-context.md](references/codebase-context.md) to understand project context
 
-**Quality Gate:** Clear understanding of what needs to be done and why.
-
----
-
 ### Stage 2: Analyze Code
 
 **Actions:**
-1. Locate relevant files using semantic search or file search
+1. Locate relevant files
 2. Read code to understand current implementation
 3. Compare requirements against existing logic
 4. Identify potential issues or gaps in requirements
@@ -38,12 +35,8 @@ Follow this 6-stage process for all code engineering tasks:
 
 **When to load references:**
 - **Always load** [references/codebase-context.md](references/codebase-context.md) if not already loaded
-- For understanding business logic and module relationships
-- **Load specific feature docs** from [references/features/](references/features/) when user mentions a feature by name
-
-**Quality Gate:** Comprehensive understanding of code structure and impact scope.
-
----
+    - For understanding business logic and module relationships
+    - **Load specific feature docs** from [references/features/](references/features/) when user mentions a feature by name
 
 ### Stage 3: Propose Solution
 
@@ -57,10 +50,6 @@ Follow this 6-stage process for all code engineering tasks:
 3. Discuss alternatives if multiple approaches exist
 4. Get user confirmation before proceeding
 
-**Quality Gate:** User-approved solution plan.
-
----
-
 ### Stage 4: Modify Code
 
 **Actions:**
@@ -73,10 +62,6 @@ Follow this 6-stage process for all code engineering tasks:
 3. Ensure business logic remains clear and testable
 4. Validate syntax and imports
 
-**Quality Gate:** Code changes complete, style-consistent, and error-free.
-
----
-
 ### Stage 5: Run & Test
 
 **Actions:**
@@ -87,15 +72,11 @@ Follow this 6-stage process for all code engineering tasks:
 5. Invite user to test the changes
 6. Iterate based on test feedback
 
-**Quality Gate:** Changes verified working by both automated execution and user testing.
-
----
-
 ### Stage 6: Submit & Summarize
 
 **Actions:**
 1. **Load** [references/git-workflow.md](references/git-workflow.md)
-2. Create feature branch following naming conventions
+2. Create feature branch following naming conventions when current branch is not default branch
 3. Commit changes with proper message format
 4. Push to remote repository
 5. Generate comprehensive change summary including:
@@ -105,10 +86,6 @@ Follow this 6-stage process for all code engineering tasks:
    - Testing notes
 6. Format as PR description if applicable
 
-**Quality Gate:** Code submitted with clear documentation.
-
----
-
 ## Decision Tree
 
 ```
@@ -117,32 +94,13 @@ User Request
     ├─ "Fix bug" → Stage 1-6 (full workflow)
     ├─ "Investigate issue" → Stage 1-2, then report findings
     ├─ "Run project" → Jump to Stage 5
+    ├─ "Understand code" → Stage 2 only, load codebase-context.md
     ├─ "Explain code" → Stage 2 only, load codebase-context.md
+    ├─ "Read codebase" → Stage 2 only, load codebase-context.md
+    ├─ "Explore repository" → Stage 2 only, load codebase-context.md
     ├─ "Review changes" → Load git-workflow.md, analyze diff
     └─ "Retrospective" → Load references/retrospective-guide.md
 ```
 
-## Checkpoints
-
-Use these to verify quality at each stage:
-
-- [ ] Requirements clear and confirmed
-- [ ] Code impact scope identified
-- [ ] Solution approach approved by user
-- [ ] Changes follow project coding standards
-- [ ] Code tested and verified working
-- [ ] Changes properly committed and documented
-
-## Optional Advanced References
-
-Load these when explicitly needed:
-
 - **references/retrospective-guide.md** - For post-work analysis and improvement identification
 - Additional references can be added as the skill evolves
-
-## Key Principles
-
-1. **Always confirm before coding** - Get user approval on approach (Stage 3)
-2. **Load standards before modifying** - Ensure consistency with existing code
-3. **Test before submitting** - Never submit untested changes
-4. **Document comprehensively** - Future developers (including you) will thank you
